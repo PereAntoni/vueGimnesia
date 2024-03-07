@@ -1,0 +1,41 @@
+<!--
+An example of creating a reusable grid component and using it with external data.
+-->
+
+<script type="module">
+    import DemoGrid from './Grid.js'
+    import { createApp, ref } from 'vue'
+    
+    createApp({
+      components: {
+        DemoGrid
+      },
+      setup() {
+        const searchQuery = ref('')
+        const gridColumns = ['name', 'power']
+        const gridData = [
+          { name: 'Chuck Norris', power: Infinity },
+          { name: 'Bruce Lee', power: 9000 },
+          { name: 'Jackie Chan', power: 7000 },
+          { name: 'Jet Li', power: 8000 }
+        ]
+    
+        return {
+          searchQuery,
+          gridColumns,
+          gridData
+        }
+      }
+    }).mount('#app')
+    </script>
+    
+    <div id="app">
+      <form id="search">
+        Search <input name="query" v-model="searchQuery">
+      </form>
+      <demo-grid
+        :data="gridData"
+        :columns="gridColumns"
+        :filter-key="searchQuery">
+      </demo-grid>
+    </div>
