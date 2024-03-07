@@ -16,6 +16,7 @@ const count = ref(0)
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMRL
+      CANVIAT
     </p>
   </div>
 
